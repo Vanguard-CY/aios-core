@@ -2,22 +2,20 @@
 
 **Requisitos Funcionais (FR):**
 
-1. **FR1:** O sistema deve ser completamente renomeado de "AIOS-Method" para "AIOS-FULLSTACK", incluindo todos os artefatos, arquivos e referências internas.
-2. **FR2:** O agente `aios-master` deve possuir um workflow (`setup-environment`) capaz de configurar o ambiente de desenvolvimento para Windsurf, Cursor e Claude Code, criando e atualizando os arquivos de regras.
-3. **FR3 (MVP):** O sistema deve implementar uma camada de memória para prototipagem utilizando `LlamaIndex` com `SimpleVectorStore`. A persistência inicial será em sistema de arquivos local para acelerar o desenvolvimento e os testes dos agentes.
-4. **FR4:** Deve existir um agente `aios-developer` (Meta-Agente) capaz de criar novos componentes do framework (agentes, tasks, workflows) e atualizar automaticamente os manifestos do sistema para manter a integridade.
-5. **FR5:** Deve existir um agente `aios-langgraph-expert` capaz de criar agentes complexos baseados em LangGraph.
-6. **FR6:** O agente `aios-langgraph-expert` deve ser capaz de criar pontos de intervenção humana (Human-in-the-Loop) que se integram com ClickUp e WhatsApp.
-7. **FR7:** O agente `aios-langgraph-expert` deve possuir um workflow para receber um JSON de workflow do n8n, interpretá-lo e reproduzi-lo como um grafo funcional em LangGraph.
-8. **(PÓS-MVP) FR8:** Migrar a camada de memória de `LlamaIndex` para a arquitetura de produção final com **Supabase**.
+1. **FR1:** O sistema deve ser completamente renomeado de "AIOS-Method" para "AIOS-FULLSTACK", incluindo todos os artefatos, arquivos e referências internas. ✅ **Completo**
+2. **FR2:** O agente `aios-master` deve possuir um workflow (`setup-environment`) capaz de configurar o ambiente de desenvolvimento para Windsurf, Cursor e Claude Code, criando e atualizando os arquivos de regras. ✅ **Completo**
+3. **FR3 (MVP):** O sistema deve implementar uma camada de memória para prototipagem utilizando `LlamaIndex` com `SimpleVectorStore`. A persistência inicial será em sistema de arquivos local para acelerar o desenvolvimento e os testes dos agentes. ✅ **Completo**
+4. **FR4 (Marco do MVP):** Deve existir um agente `aios-developer` (Meta-Agente) capaz de criar novos componentes do framework (agentes, tasks, workflows) e atualizar automaticamente os manifestos do sistema para manter a integridade. ✅ **Completo**
+5. **FR5 (Pós-MVP):** Implementar sistema centralizado de Tools (MCP, CLI, API, Local) com Schema v2.0, suportando ferramentas simples e complexas com executable knowledge, validation system e backward compatibility 100%. ✅ **Completo**
+6. **(PÓS-MVP) FR6:** Migrar a camada de memória de `LlamaIndex` para a arquitetura de produção final com **Supabase** (pgvector, RLS, checkpointing, observabilidade). 📋 **Planejado**
 
 **Requisitos Não-Funcionais (NFR):**
 
-1. **NFR1:** A arquitetura deve ser orientada a eventos, com o LangGraph como núcleo de orquestração.
-2. **NFR2:** O sistema deve possuir observabilidade total, com integração nativa com LangSmith para tracing e telemetria para Prometheus/Grafana.
-3. **NFR3:** A persistência de estado deve ser durável, utilizando o sistema de checkpointing do LangGraph para garantir a recuperação de falhas.
-4. **NFR4:** A segurança deve ser implementada em múltiplas camadas, incluindo JWT, validação de workspace e RLS no Supabase.
-5. **NFR5:** O sistema deve ser projetado para alta performance, com metas de latência (P99 < 5s) e throughput (1M eventos/min).
+1. **NFR1:** A arquitetura deve ser modular e extensível, permitindo evolução independente de componentes (agentes, tasks, tools, memory).
+2. **NFR2:** O sistema deve possuir observabilidade total, com logging estruturado e telemetria para análise de performance.
+3. **NFR3 (Supabase):** A persistência de estado deve ser durável quando migrada para Supabase, com RLS e backup automático.
+4. **NFR4 (Supabase):** A segurança deve ser implementada em múltiplas camadas, incluindo validação de inputs, isolamento de dados e RLS no Supabase.
+5. **NFR5 (Supabase):** O sistema deve ser projetado para alta performance na camada de memória, com metas de latência (P99 < 5s para similarity search) e throughput adequado para uso em produção.
 
 **Requisitos de Compatibilidade (CR):**
 

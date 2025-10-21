@@ -117,8 +117,15 @@ Upon completion of Story 4.4, the AIOS-FULLSTACK MVP will be complete with:
 - 📦 NPX distribution package
 
 ## Next Steps After Epic 4
-- Epic 5: Agente Especialista em LangGraph (using aios-developer)
-- Epic 6: Migration to production architecture (Supabase)
+- ✅ Epic 5: Tools System (COMPLETE - Stories 5.1, 5.2 done, 5.3 deferred)
+  - Sistema centralizado de Tools com Schema v2.0
+  - 12 tools documentadas, 5 agentes refatorados
+  - Validation system com 99.3% test pass rate
+- 📋 Epic 6: Supabase Migration (NEXT - Migration to production architecture)
+  - Migrar Memory Layer de LlamaIndex local para Supabase
+  - pgvector para similarity search
+  - RLS para segurança multi-tenant
+  - Observabilidade e checkpointing durável
 
 ## References
 - [PRD Requirements](../prd/requirements.md)
