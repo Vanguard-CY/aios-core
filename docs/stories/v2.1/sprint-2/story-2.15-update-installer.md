@@ -259,7 +259,7 @@ git revert --no-commit HEAD~N
 - [x] All P1 smoke tests pass (INS-05 to INS-06)
 - [x] Story checkboxes updated to [x]
 - [x] QA Review passed
-- [ ] PR created and approved
+- [x] PR created and approved
 
 ---
 
