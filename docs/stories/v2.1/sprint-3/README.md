@@ -1,17 +1,17 @@
 # Sprint 3 Stories - Quality Gates 3 Layers + Template Engine
 
-**Sprint:** 3 | **Duration:** 2 semanas | **Points:** 67 | **Stories:** 12
+**Sprint:** 3 | **Duration:** 2 semanas | **Points:** 54 | **Stories:** 12
 
 ## 📋 Stories List
 
 | ID | Story | Points | Priority | Status |
 |----|-------|--------|----------|--------|
 | 3.0 | [Core Module Security Hardening](story-3.0-security-hardening.md) | 3 | 🔴 Critical | ✅ Done |
-| 3.1 | [Pre-Commit Hooks (Layer 1)](story-3.1-pre-commit-hooks.md) | 5 | 🔴 Critical | 🟡 Ready for Dev |
-| 3.2 | [CodeRabbit Local Extension](story-3.2-coderabbit-local.md) | 5 | 🔴 Critical | 🟡 Ready for Dev |
-| 3.3-3.4 | [PR Automation + Quinn Layer 2](story-3.3-3.4-pr-automation.md) | 13 | 🔴 Critical | ⚪ Blocked |
-| 3.5 | [Human Review Orchestration (Layer 3)](story-3.5-human-review.md) | 5 | 🟠 High | ⚪ Blocked |
-| 3.6 | Template Engine Core Refactor | 8 | 🔴 Critical | ⚪ Blocked |
+| 3.1 | [Pre-Commit Hooks (Layer 1)](story-3.1-pre-commit-hooks.md) | 5 | 🔴 Critical | ✅ Done |
+| 3.2 | [CodeRabbit Local Extension](story-3.2-coderabbit-local.md) | 0 | ⚫ N/A | ❌ Cancelled |
+| 3.3-3.4 | [PR Automation Layer 2](story-3.3-3.4-pr-automation.md) | 8 | 🔴 Critical | ✅ Done |
+| 3.5 | [Human Review Orchestration (Layer 3)](story-3.5-human-review.md) | 5 | 🟠 High | ✅ Ready for PR |
+| 3.6 | [Template Engine Final](story-3.6-3.12-template-engine-final.md) | 8 | 🔴 Critical | ⚪ Blocked |
 | 3.7 | Template PRD v2.0 | 3 | 🟠 High | ⚪ Blocked |
 | 3.8 | Template ADR | 3 | 🟠 High | ⚪ Blocked |
 | 3.9 | Template PMDR | 3 | 🟡 Medium | ⚪ Blocked |
@@ -19,7 +19,7 @@
 | 3.11 | Quality Gates Dashboard | 8 | 🟠 High | ⚪ Blocked |
 | 3.12 | Documentation Sprint 3 | 5 | 🟡 Medium | ⚪ Blocked |
 
-**Total:** 67 pontos (13 stories)
+**Total:** 54 pontos ativos (12 stories) | 5 pts cancelados
 
 ## 🎯 Sprint Goals
 - ✅ Security vulnerabilities addressed (ReDoS, Path Traversal) - **Story 3.0**
@@ -51,5 +51,5 @@ Before starting feature stories (3.1-3.12), the following must be addressed:
 ---
 
 **Criado por:** River 🌊
-**Atualizado por:** Pax 🎯 (PO) - 2025-12-01
+**Atualizado por:** Pax 🎯 (PO) - 2025-12-02
 
