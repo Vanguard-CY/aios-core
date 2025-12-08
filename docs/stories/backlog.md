@@ -1,9 +1,9 @@
 # Backlog
 
 **Generated:** 2025-12-05T18:00:00.000Z
-**Updated:** 2025-12-08T18:30:00.000Z
+**Updated:** 2025-12-08T19:35:00.000Z
 **Total Items:** 7
-**Stories Approved:** 1 (Story 5.10)
+**Stories Completed:** 2 (Story 3.11c, Story 5.10)
 
 ---
 
@@ -12,43 +12,15 @@
 - 📌 **Follow-up**: 1
 - 🔧 **Technical Debt**: 4
 - ✨ **Enhancement**: 2
-- 🔴 **Critical**: 1
-- ✅ **Resolved**: 1 (Story 3.11c)
+- 🔴 **Critical**: 0
+- ✅ **Resolved**: 2 (Story 3.11c, Story 5.10)
 - ❌ **Obsolete**: 1 (removed from active backlog)
 
 ---
 
-## 🔴 Critical (1 item)
+## 🔴 Critical (0 items)
 
-| ID | Type | Title | Priority | Related Story | Effort | Tags | Created By | Sprint |
-|----|------|-------|----------|---------------|--------|------|------------|--------|
-| 1733664000001 | 🔴 Critical | GitHub DevOps Setup for User Projects | 🔴 Critical | [5.10](v2.1/sprint-5/story-5.10-github-devops-user-projects.md) ✅ | 15 hours | `devops`, `github`, `ci-cd`, `user-projects`, `bootstrap` | @po | **Sprint 5** |
-
-### GitHub DevOps Setup for User Projects (ID: 1733664000001) - 🔴 CRITICAL ✅ APPROVED
-
-**Created:** 2025-12-08 | **Priority:** 🔴 Critical | **Sprint:** 5
-**Status:** ✅ Approved - Ready for Dev | **Validation Score:** 89/90 (98.9%)
-
-**Problem:** O `*environment-bootstrap` cria o repositório Git/GitHub para projetos de usuários, mas NÃO configura a infraestrutura DevOps completa:
-- GitHub Actions workflows não são copiados
-- CodeRabbit não é configurado
-- Branch protection não é habilitado
-- Secrets não são configurados
-
-**Impact:** Usuários que criam projetos via AIOS não têm CI/CD, code review automático, e quality gates.
-
-**Solution:** Story 5.10 implementa:
-1. Nova task `*setup-github` para @devops
-2. Templates de GitHub Actions copiáveis
-3. Configuração automática de CodeRabbit
-4. Branch protection via GitHub API
-5. Wizard interativo de secrets
-
-**Estimated Effort:** 15 hours (~2 days)
-
-**Supersedes:** Stories 4.1-4.7 (marcadas como OBSOLETE)
-
-📄 **[Ver Story 5.10](v2.1/sprint-5/story-5.10-github-devops-user-projects.md)**
+*No critical items - all resolved!*
 
 ---
 
@@ -400,7 +372,28 @@
 
 | ID | Type | Title | Priority | Related Story | Resolved | PR |
 |----|------|-------|----------|---------------|----------|-----|
+| 1733664000001 | ✅ Resolved | GitHub DevOps Setup for User Projects | 🔴 Critical | [5.10](v2.1/sprint-5/story-5.10-github-devops-user-projects.md) ✅ Done | 2025-12-08 | [PR #29](https://github.com/Pedrovaleriolopez/aios-fullstack/pull/29) |
 | 1733673600001 | ✅ Resolved | Quality Metrics Live Integration | 🔴 Critical | [3.11c](v2.1/sprint-3/story-3.11c-metrics-live-integration.md) ✅ Done | 2025-12-08 | [PR #28](https://github.com/Pedrovaleriolopez/aios-fullstack/pull/28) |
+
+### ~~GitHub DevOps Setup for User Projects (ID: 1733664000001)~~ ✅ RESOLVED
+
+**Created:** 2025-12-08 | **Resolved:** 2025-12-08 | **Sprint:** 5
+
+**Problem:** O `*environment-bootstrap` criava repositório Git/GitHub mas não configurava infraestrutura DevOps completa (workflows, CodeRabbit, branch protection, secrets).
+
+**Solution Implemented (PR #29):**
+- [x] Nova task `*setup-github` para @devops
+- [x] Templates de GitHub Actions (ci.yml, pr-automation.yml, release.yml)
+- [x] Template de configuração CodeRabbit
+- [x] Branch protection via GitHub API
+- [x] Wizard interativo de secrets
+- [x] 3 modos de execução: YOLO, Interactive, Pre-Flight
+
+**Result:** Usuários agora podem configurar DevOps completo em seus projetos com `*setup-github`.
+
+📄 **[Ver Story 5.10](v2.1/sprint-5/story-5.10-github-devops-user-projects.md)**
+
+---
 
 ### ~~Quality Metrics Live Integration (ID: 1733673600001)~~ ✅ RESOLVED
 
