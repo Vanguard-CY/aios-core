@@ -3,7 +3,7 @@
 **Generated:** 2025-12-05T18:00:00.000Z
 **Updated:** 2025-12-10T23:50:00.000Z
 **Total Items:** 7
-**Stories Completed:** 6 (Story 3.11c, Story 5.10, Story OSR-2, Story OSR-3, Story OSR-6, Story OSR-7)
+**Stories Completed:** 7 (Story 3.11c, Story 5.10, Story OSR-2, Story OSR-3, Story OSR-6, Story OSR-7, Story OSR-8)
 
 > **Roadmap Sync Reminder:** When completing sprints, update the [AIOS Public Roadmap](https://github.com/orgs/SynkraAI/projects/1) and [ROADMAP.md](../../ROADMAP.md). See sync checklist in ROADMAP.md.
 
@@ -15,7 +15,7 @@
 - 🔧 **Technical Debt**: 4
 - ✨ **Enhancement**: 2
 - 🔴 **Critical**: 0
-- ✅ **Resolved**: 6 (Story 3.11c, Story 5.10, Story OSR-2, Story OSR-3, Story OSR-6, Story OSR-7)
+- ✅ **Resolved**: 7 (Story 3.11c, Story 5.10, Story OSR-2, Story OSR-3, Story OSR-6, Story OSR-7, Story OSR-8)
 - ❌ **Obsolete**: 1 (removed from active backlog)
 
 ---
@@ -294,13 +294,13 @@
 |-----------------------|--------------------------------|
 | ✅ OSR-1: Audit Session (4h) | ✅ OSR-6: Processo Features (4h) |
 | ✅ OSR-2: Repo Investigation (8h) | ✅ OSR-7: Public Roadmap (4h) |
-| ✅ OSR-3: Legal Foundation (6h) | OSR-8: Squads Guide (4h) |
+| ✅ OSR-3: Legal Foundation (6h) | ✅ OSR-8: Squads Guide (4h) |
 | ✅ OSR-4: GitHub Setup (3h) | ✅ OSR-9: Rebranding Synkra (4h) |
 | ✅ OSR-5: COMMUNITY.md (4h) | OSR-10: Release Checklist (4h) |
 
 📄 **[Ver Epic Completo](epic-open-source-readiness/EPIC-OSR-INDEX.md)**
 
-**Status Atual:** 🚀 8/10 stories completas (OSR-1 a OSR-7, OSR-9) | Sprint 6 em progresso
+**Status Atual:** 🚀 9/10 stories completas (OSR-1 a OSR-9) | Sprint 6 em progresso
 
 **GitHub Project:** [AIOS Public Roadmap](https://github.com/orgs/SynkraAI/projects/1)
 
@@ -376,12 +376,33 @@
 
 | ID | Type | Title | Priority | Related Story | Resolved | PR |
 |----|------|-------|----------|---------------|----------|-----|
+| 1733880000001 | ✅ Resolved | Squads Guide Documentation | 🟠 High | [OSR-8](v2.1/sprint-6/story-osr-8-expansion-pack-guide.md) ✅ Done | 2025-12-10 | - |
 | 1733870000001 | ✅ Resolved | Public Roadmap for Community | 🟡 Medium | [OSR-7](v2.1/sprint-6/story-osr-7-public-roadmap.md) ✅ Done | 2025-12-10 | [PR #2](https://github.com/SynkraAI/aios-core/pull/2) |
 | 1733830000001 | ✅ Resolved | Feature Request Process | 🟠 High | [OSR-6](v2.1/sprint-6/story-osr-6-features-process.md) ✅ Done | 2025-12-10 | [PR #1](https://github.com/SynkraAI/aios-core/pull/1) |
 | 1733750000001 | ✅ Resolved | Legal Foundation Documentation | 🔴 Critical | [OSR-3](v2.1/sprint-5/story-osr-3-legal-foundation.md) ✅ Done | 2025-12-09 | [PR #31](https://github.com/Pedrovaleriolopez/aios-fullstack/pull/31) |
 | 1733749000001 | ✅ Resolved | Repository Strategy Investigation | 🔴 Critical | [OSR-2](v2.1/sprint-5/story-osr-2-repo-investigation.md) ✅ Done | 2025-12-08 | - |
 | 1733664000001 | ✅ Resolved | GitHub DevOps Setup for User Projects | 🔴 Critical | [5.10](v2.1/sprint-5/story-5.10-github-devops-user-projects.md) ✅ Done | 2025-12-08 | [PR #29](https://github.com/Pedrovaleriolopez/aios-fullstack/pull/29) |
 | 1733673600001 | ✅ Resolved | Quality Metrics Live Integration | 🔴 Critical | [3.11c](v2.1/sprint-3/story-3.11c-metrics-live-integration.md) ✅ Done | 2025-12-08 | [PR #28](https://github.com/Pedrovaleriolopez/aios-fullstack/pull/28) |
+
+### ~~Squads Guide Documentation (ID: 1733880000001)~~ ✅ RESOLVED
+
+**Created:** 2025-12-05 | **Resolved:** 2025-12-10 | **Sprint:** 6
+
+**Problem:** Comunidade precisava de guia completo para criar Squads (extensões modulares de agentes).
+
+**Solution Implemented:**
+- [x] `docs/guides/squads-guide.md` - Guia principal completo (293 linhas)
+- [x] `templates/squad/` - Template completo com 10 arquivos
+- [x] `docs/guides/squad-examples/` - Exemplos práticos (3 arquivos)
+- [x] `CONTRIBUTING.md` - Seção de Squads adicionada
+- [x] `README.md` - Referência ao guia adicionada
+- [x] Testado com squad de exemplo
+
+**Result:** Desenvolvedores agora podem criar Squads seguindo documentação completa.
+
+📄 **[Ver Story OSR-8](v2.1/sprint-6/story-osr-8-expansion-pack-guide.md)**
+
+---
 
 ### ~~Public Roadmap for Community (ID: 1733870000001)~~ ✅ RESOLVED
 

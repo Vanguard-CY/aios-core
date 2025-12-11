@@ -29,8 +29,8 @@ O Sprint 6 combina:
 | Story | Title | Points | Priority | Status |
 |-------|-------|--------|----------|--------|
 | [OSR-6](story-osr-6-features-process.md) | Feature Request Process | 5 | 🟠 High | ✅ DONE |
-| [OSR-7](story-osr-7-public-roadmap.md) | Public Roadmap | 5 | 🟡 Medium | ⚪ Ready |
-| [OSR-8](story-osr-8-expansion-pack-guide.md) | Squads Guide (Community) | 5 | 🟠 High | ⚪ Ready |
+| [OSR-7](story-osr-7-public-roadmap.md) | Public Roadmap | 5 | 🟡 Medium | ✅ DONE |
+| [OSR-8](story-osr-8-expansion-pack-guide.md) | Squads Guide (Community) | 5 | 🟠 High | ✅ DONE |
 | [OSR-9](story-osr-9-rebranding-synkra.md) | Rebranding Investigation (Synkra) | 3 | 🟡 Medium | ✅ DONE |
 | [OSR-10](story-osr-10-release-checklist.md) | Release Checklist Final | 3 | 🔴 Critical | ⚪ Ready |
 
@@ -92,9 +92,9 @@ O Sprint 6 combina:
 
 ### Open-Source Release
 - [x] Feature process documentado (OSR-6)
-- [ ] Public roadmap publicado (OSR-7)
-- [ ] Squads guide criado (OSR-8)
-- [ ] Decisão de naming tomada (OSR-9)
+- [x] Public roadmap publicado (OSR-7)
+- [x] Squads guide criado (OSR-8)
+- [x] Decisão de naming tomada (OSR-9)
 - [ ] Release checklist executado (OSR-10)
 
 ### General
