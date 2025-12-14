@@ -1,6 +1,6 @@
 # Story Index
 
-**Updated:** 2025-12-10
+**Updated:** 2025-12-14
 **Structure:** Consolidated v2.1
 
 ---
@@ -45,7 +45,9 @@ docs/stories/
 | OSR-7 | ✅ Done | Public Roadmap |
 | OSR-8 | ✅ Done | Squads Guide |
 | OSR-9 | ✅ Done | Rebranding (Synkra) |
-| OSR-10 | ⏳ Pending | Release Checklist |
+| 6.9 | ✅ Done | Documentation Integrity System |
+| 6.10 | ⏳ Ready | Documentation Cleanup for OSR |
+| OSR-10 | ⏳ Pending | Release Checklist (blocked by 6.10) |
 
 > **Public Roadmap:** [GitHub Project](https://github.com/orgs/SynkraAI/projects/1) | [ROADMAP.md](../../ROADMAP.md)
 

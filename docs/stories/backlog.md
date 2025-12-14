@@ -30,47 +30,81 @@
 
 | ID | Type | Title | Priority | Related Story | Effort | Tags | Created By | Sprint |
 |----|------|-------|----------|---------------|--------|------|------------|--------|
-| 1733400000001 | ✨ Enhancement | Investigação: Recriar expansion-creator alinhado com nova arquitetura AIOS v2.1 | 🟡 Medium | - | 4-8 hours | `investigation`, `expansion-creator`, `architecture`, `refactoring`, `v2.1-alignment` | @po | TBD |
-| 1733400000002 | ✨ Enhancement | Investigação: Refatorar expansion-pack hybrid-ops-pedro-valerio com novo framework de Process Mapping | 🟡 Medium | - | 4-8 hours | `investigation`, `expansion-pack`, `hybrid-ops`, `process-mapping`, `pedro-valerio` | @po | **Sprint 5** |
+| 1733400000001 | ✨ Enhancement | Investigation: Squads System Enhancement | 🟡 Medium | - | 8-12 hours | `investigation`, `squads`, `architecture`, `cli`, `loader` | @po | TBD (post OSR-10) |
+| 1733400000002 | ✨ Enhancement | Investigation: Refatorar hybrid-ops Squad com Process Mapping Framework | 🟡 Medium | - | 4-8 hours | `investigation`, `squad`, `hybrid-ops`, `process-mapping`, `pedro-valerio` | @po | TBD |
 
-### Escopo da Investigação (ID: 1733400000001)
+### Investigation Squads System (ID: 1733400000001) - 🔄 UPDATED 2025-12-14
 
-- [ ] Mapeamento de todos os standards em `.aios-core/docs/standards/`
-- [ ] Análise da estrutura de módulos (`core/`, `development/`, etc.)
-- [ ] Análise dos loaders existentes
-- [ ] Comparação com expansion-creator atual (`expansion-packs/expansion-creator/`)
-- [ ] Recomendação de sprint ideal para refatoração
-- [ ] Documentar gaps entre arquitetura atual do expansion-creator e nova estrutura AIOS
+> **Context:** Este enhancement foi transformado de "expansion-creator" para "Squads System" após OSR-8 implementar a base do sistema de Squads.
 
-### Escopo da Investigação (ID: 1733400000002) - 📅 Sprint 5
+**Objetivo:** Completar o sistema de Squads identificando e implementando funcionalidades faltantes.
 
-**Objetivo:** Refatorar `aios-hybrid-ops-pedro-valerio` com base no novo framework de mapeamento de processos.
+**O que JÁ EXISTE (OSR-8):**
+- ✅ `templates/squad/` - Template completo com 10 arquivos
+- ✅ `docs/guides/squads-guide.md` - Guia de 293 linhas
+- ✅ Schema YAML para `squad.yaml`
+- ✅ Estrutura de agents, tasks, workflows, templates
 
-**Arquivos de Referência (a serem criados/finalizados):**
+**GAPS Identificados (a implementar):**
+
+| Gap | Descrição | Prioridade |
+|-----|-----------|------------|
+| Squad Loader | Sistema para carregar squads dinamicamente no runtime | 🔴 High |
+| `npx create-aios-squad` | CLI para scaffolding de novos squads | 🟠 Medium |
+| Squad Validator | Validação de `squad.yaml` contra JSON Schema | 🟠 Medium |
+| Migration Tool | Converter antigos expansion-packs para formato Squad | 🟡 Low |
+| Registry Integration | Integração com npm/marketplace para publicação | 🟡 Low |
+
+**Checklist de Investigação (NOVO):**
+- [ ] Analisar como squads devem ser carregados no runtime AIOS
+- [ ] Definir spec para Squad Loader (lazy loading, caching)
+- [ ] Projetar CLI `create-aios-squad` com prompts interativos
+- [ ] Criar JSON Schema para validação de `squad.yaml`
+- [ ] Documentar processo de publicação de squads
+- [ ] Avaliar integração com npm registry
+- [ ] Propor arquitetura para marketplace futuro
+
+**Referências:**
+- `docs/guides/squads-guide.md` - Guia existente
+- `templates/squad/` - Template base
+- OSR-8 Story - Implementação original
+
+---
+
+### Investigation hybrid-ops Squad (ID: 1733400000002) - 📍 MIGRATING TO SYNKRA PROJECT
+
+> **⚠️ Migration Notice:** Este enhancement será executado no projeto **synkra** em `C:\Users\AllFluence-User\Workspaces\SynkraAi\synkra`, não mais em aios-core.
+
+**Objetivo:** Refatorar `hybrid-ops` como um Squad oficial usando o novo framework de Process Mapping.
+
+**Arquivos de Referência (a serem criados no projeto synkra):**
 - `docs/standards/AGNOSTIC-PROCESS-MAPPING-FRAMEWORK.md`
 - `docs/standards/DECISION-TREE-GENERATOR-SYSTEM-PROMPT.md`
 - `docs/standards/LATTICEWORK-PROCESS-MAPPING.md`
 
 **Checklist de Investigação:**
-- [ ] Analisar estrutura atual dos 9 agentes em `aios-hybrid-ops-pedro-valerio/agents/`
+- [ ] Analisar estrutura atual dos 9 agentes em `hybrid-ops/agents/`
+- [ ] Converter para formato Squad (`squad.yaml`)
 - [ ] Mapear dependências com AIOS-Fullstack core
-- [ ] Identificar gaps entre agentes atuais e novos standards de process mapping
-- [ ] Avaliar compatibilidade com novo AGNOSTIC-PROCESS-MAPPING-FRAMEWORK
-- [ ] Propor refatoração do DECISION-TREE-GENERATOR nos agentes relevantes
-- [ ] Integrar conceitos do LATTICEWORK-PROCESS-MAPPING
-- [ ] Documentar plano de migração com estimativa de esforço
-- [ ] Validar alinhamento com `.aios-core/docs/standards/` e `.aios-core/core/docs/`
+- [ ] Identificar gaps com novos standards de process mapping
+- [ ] Integrar AGNOSTIC-PROCESS-MAPPING-FRAMEWORK
+- [ ] Integrar DECISION-TREE-GENERATOR
+- [ ] Integrar LATTICEWORK-PROCESS-MAPPING
+- [ ] Documentar plano de migração
+- [ ] Publicar como Squad oficial
 
-**Agentes Impactados (9 total):**
-1. `process-mapper-pv.md` - Principal candidato para refatoração
-2. `process-architect-pv.md` - Alinhamento arquitetural
-3. `executor-designer-pv.md` - Decision tree integration
-4. `workflow-designer-pv.md` - Latticework patterns
-5. `qa-validator-pv.md` - Validation gates
-6. `clickup-engineer-pv.md` - Minimal changes expected
-7. `agent-creator-pv.md` - Template alignment
-8. `documentation-writer-pv.md` - Output format updates
-9. `validation-reviewer-pv.md` - Compliance checks
+**Agentes a Migrar (9 total):**
+1. `process-mapper-pv.md` - Principal candidato
+2. `process-architect-pv.md` - Arquitetura
+3. `executor-designer-pv.md` - Decision tree
+4. `workflow-designer-pv.md` - Latticework
+5. `qa-validator-pv.md` - Validation
+6. `clickup-engineer-pv.md` - Integração
+7. `agent-creator-pv.md` - Templates
+8. `documentation-writer-pv.md` - Output
+9. `validation-reviewer-pv.md` - Compliance
+
+**Destino:** `SynkraAi/synkra` (projeto separado)
 
 ---
 

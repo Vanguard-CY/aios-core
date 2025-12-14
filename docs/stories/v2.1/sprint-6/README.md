@@ -33,9 +33,10 @@ O Sprint 6 combina:
 | [OSR-7](story-osr-7-public-roadmap.md) | Public Roadmap | 5 | 🟡 Medium | ✅ DONE |
 | [OSR-8](story-osr-8-expansion-pack-guide.md) | Squads Guide (Community) | 5 | 🟠 High | ✅ DONE |
 | [OSR-9](story-osr-9-rebranding-synkra.md) | Rebranding Investigation (Synkra) | 3 | 🟡 Medium | ✅ DONE |
+| [6.10](story-6.10-documentation-cleanup-open-source.md) | Documentation Cleanup for OSR | 5 | 🔴 Critical | ⚪ Ready |
 | [OSR-10](story-osr-10-release-checklist.md) | Release Checklist Final | 3 | 🔴 Critical | ⚪ Ready |
 
-**Total Points:** 58 (37 Technical Debt & Infrastructure + 21 OSR)
+**Total Points:** 63 (37 Technical Debt & Infrastructure + 26 OSR)
 
 ---
 
@@ -68,7 +69,8 @@ O Sprint 6 combina:
 - **OSR-7** depende de OSR-6
 - **OSR-8** depende de OSR-2 (Sprint 5)
 - **OSR-9** pode ser iniciada em paralelo
-- **OSR-10** depende de todas as outras stories OSR
+- **Story 6.10** depende de Story 6.9 e OSR-8 (ambos ✅ DONE) - **BLOCKER para OSR-10**
+- **OSR-10** depende de 6.10 e todas as outras stories OSR
 
 ---
 
@@ -96,6 +98,7 @@ O Sprint 6 combina:
 - [x] Public roadmap publicado (OSR-7)
 - [x] Squads guide criado (OSR-8)
 - [x] Decisão de naming tomada (OSR-9)
+- [ ] Documentation cleanup para OSR (Story 6.10)
 - [ ] Release checklist executado (OSR-10)
 
 ### General
