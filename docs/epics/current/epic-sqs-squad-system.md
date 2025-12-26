@@ -1,13 +1,14 @@
 # Epic: Squad System Enhancement (SQS)
 
 **Epic ID:** SQS
-**Status:** APPROVED - Architecture Validated
+**Status:** ✅ COMPLETE
+**Completed:** 2025-12-26
 **Created:** 2025-12-18
 **PO:** Pax (Balancer)
 **Owner:** Architect (Aria) + Dev (Dex) + DevOps (Gage)
-**Target Sprint:** Sprint 7-8 (post OSR-10)
-**Total Stories:** 10 stories (SQS-0 to SQS-9)
-**Total Effort:** ~58-78 hours
+**Target Sprint:** Sprint 7-8, 13 (post OSR-10)
+**Total Stories:** 11 stories (SQS-0 to SQS-10) - All DONE
+**Total Effort:** ~90-122 hours
 **Repository:** https://github.com/SynkraAI/aios-squads (PUBLIC, EXISTS)
 
 ---
@@ -396,6 +397,18 @@ integration:
 | **SQS-7** | Migration Tool (expansion-packs → squads) | Feature | Medium | 6-8h | SQS-3 |
 | **SQS-8** | Documentation & Examples Update | Enhancement | Medium | 4-6h | All |
 | **SQS-9** | Squad Designer - Guided Creation from Docs | Feature | High | 26-35h | SQS-4 |
+
+### Sprint 13 - Bug Fixes (1 story, ~4-6h)
+
+| ID | Story | Tipo | Priority | Effort | Deps |
+|----|-------|------|----------|--------|------|
+| **SQS-10** | Project Config Reference for Squads | Bug Fix | High | 4-6h | SQS-3, SQS-4 |
+
+### Sprint 14 - Continuous Improvement (1 story, ~28-38h)
+
+| ID | Story | Tipo | Priority | Effort | Deps |
+|----|-------|------|----------|--------|------|
+| **SQS-11** | Squad Analyze & Extend - Continuous Improvement | Feature | High | 28-38h | SQS-4, SQS-9, SQS-10 |
 
 ---
 
@@ -930,6 +943,73 @@ Nova task `*design-squad` que:
 
 ---
 
+### SQS-10: Project Config Reference for Squads (NEW)
+
+**Objective:** Fix squad-creator to reference project-level config files instead of creating duplicates.
+
+**Problem:**
+- `*create-squad` creates duplicate config files in `config/` directory
+- Ignores existing project-level configs in `docs/framework/`
+- `config.extends: extend` is documented but non-functional
+
+**Solution:**
+- Detect project-level configs in `docs/framework/`
+- Reference them in `squad.yaml` when `configMode: extend`
+- Update validator to resolve both local and project-level paths
+
+**Deliverables:**
+- [ ] Update `squad-generator.js` with project config detection
+- [ ] Update `squad-validator.js` with path resolution
+- [ ] Update `squad-creator-create.md` task documentation
+- [ ] Update `squad-creator-validate.md` task documentation
+- [ ] Unit tests for new behavior
+- [ ] Backwards compatibility with existing squads
+
+**Story File:** [story-sqs-10-project-config-reference.md](../../stories/v2.1/sprint-13/story-sqs-10-project-config-reference.md)
+
+---
+
+### SQS-11: Squad Analyze & Extend - Continuous Improvement (NEW)
+
+**Objective:** Enable continuous improvement of squads by analyzing existing structures and incrementally adding new components.
+
+**Status:** ✅ Approved (2025-12-26 by @po)
+
+**Problem:**
+- No way to analyze what an existing squad contains
+- No guided workflow to add new components incrementally
+- Manual process prone to errors (forgetting to update squad.yaml)
+- No traceability linking changes to official stories
+
+**Solution:**
+- `*analyze-squad {name}` - Scan and report squad structure, coverage, suggestions
+- `*extend-squad {name}` - Interactive component addition with manifest auto-update
+
+**New Commands:**
+
+| Command | Purpose |
+|---------|---------|
+| `*analyze-squad` | Show inventory, coverage metrics, suggestions |
+| `*extend-squad` | Add agents, tasks, templates, tools, workflows, etc. |
+| `*extend-squad --add {type}` | Direct component addition |
+
+**Deliverables:**
+- [ ] `.aios-core/development/tasks/squad-creator-analyze.md`
+- [ ] `.aios-core/development/tasks/squad-creator-extend.md`
+- [ ] `.aios-core/development/scripts/squad/squad-analyzer.js`
+- [ ] `.aios-core/development/scripts/squad/squad-extender.js`
+- [ ] Component templates for all 8 types
+- [ ] Update squad-creator.md agent
+- [ ] Unit tests (85%+ coverage)
+- [ ] Integration tests
+
+**Effort:** 28-38 hours
+**Dependencies:** SQS-4 ✅, SQS-9 ✅, SQS-10 ✅
+
+**Story File:** [story-sqs-11-squad-improvement.md](../../stories/v2.1/sprint-14/story-sqs-11-squad-improvement.md)
+
+---
+
 ## Dependency Flow
 
 ```
@@ -960,6 +1040,26 @@ Sprint 8 (Integration)
 │  SQS-3 ────► SQS-7 (Migration)                             │
 │                                                             │
 │  ALL ──────► SQS-8 (Documentation)                         │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+Sprint 13 (Bug Fixes)
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│  SQS-3 + SQS-4 ──► SQS-10 (Project Config Reference)       │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+Sprint 14 (Continuous Improvement)
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│  SQS-4 + SQS-9 + SQS-10 ──► SQS-11 (Analyze & Extend)      │
+│                                                             │
+│  New Commands:                                              │
+│    *analyze-squad - Inventory & coverage                   │
+│    *extend-squad - Add components incrementally            │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -1066,13 +1166,16 @@ Sprint 8 (Integration)
 | 2025-12-18 | Q5: Package namespace - `@aios-squads/*` | @architect (Aria) |
 | 2025-12-18 | Architecture validated - ADR-SQS-001 approved | @architect (Aria) |
 | 2025-12-18 | SQS-9 created - Squad Designer for guided squad creation | @architect (Aria) |
+| 2025-12-26 | SQS-10 created - Fix config file duplication in squad-creator | @architect (Aria) |
+| 2025-12-26 | SQS-11 created - Squad Analyze & Extend for continuous improvement | @architect (Aria) |
+| 2025-12-26 | SQS-11 approved - Added CodeRabbit section, security considerations | @po (Pax) |
 
 ---
 
 **Created by:** Pax (PO)
 **Date:** 2025-12-18
 **Architecture Approved:** 2025-12-18 by @architect (Aria)
-**Status:** APPROVED - Ready for Implementation
+**Status:** ✅ COMPLETE
 
 ---
 
