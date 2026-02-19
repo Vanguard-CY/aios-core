@@ -1,0 +1,47 @@
+name: marketing
+version: '1.0.0'
+description: >
+  Squad de Marketing completo com 3 times especializados:
+  Tráfego (paid media e performance), Design (criação visual e identidade)
+  e Copy (texto persuasivo e conteúdo estratégico).
+author: Vanguard-CY
+license: MIT
+
+teams:
+  - id: traffic
+    name: Time de Tráfego
+    description: Gestão de campanhas pagas, performance e escalada de resultados
+    lead: traffic-manager
+    agents:
+      - traffic-manager
+      - media-buyer
+      - analytics-specialist
+
+  - id: design
+    name: Time de Design
+    description: Criação visual, identidade de marca e criativos para campanhas
+    lead: creative-director
+    agents:
+      - creative-director
+      - visual-designer
+      - video-editor
+
+  - id: copy
+    name: Time de Copy
+    description: Copywriting persuasivo, conteúdo estratégico e narrativa de marca
+    lead: chief-copywriter
+    agents:
+      - chief-copywriter
+      - content-strategist
+      - email-specialist
+
+orchestrator: marketing-orchestrator
+
+tags:
+  - marketing
+  - traffic
+  - design
+  - copy
+  - performance
+  - paid-media
+  - branding

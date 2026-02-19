@@ -54,7 +54,11 @@ credentials/
 .claude/commands/hybridOps/
 
 # Private local squads (not for repository)
-squads/
+# squads/ is ignored by default; add exceptions below per squad:
+squads/*
+!squads/marketing
+squads/marketing/**
+!squads/marketing/**
 keys/
 *.secret
 *.credentials
