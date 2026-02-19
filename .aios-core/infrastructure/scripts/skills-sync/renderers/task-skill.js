@@ -1,0 +1,113 @@
+'use strict';
+
+const { trimText } = require('./agent-skill');
+
+function normalizeTaskId(taskId) {
+  const id = String(taskId || '').trim().replace(/^aios-task-/, '');
+  return id;
+}
+
+function normalizeAgentSlug(agent) {
+  return String(agent || '').trim().replace(/^aios-/, '');
+}
+
+function getAgentSourceFilename(agent) {
+  const agentSlug = normalizeAgentSlug(agent);
+  if (!agentSlug) {
+    throw new Error('Task skill requires owner agent');
+  }
+  return agentSlug === 'master' ? 'aios-master.md' : `${agentSlug}.md`;
+}
+
+function getTaskSkillId(taskId, agent) {
+  const id = normalizeTaskId(taskId);
+  const agentSlug = normalizeAgentSlug(agent);
+
+  if (!id) {
+    throw new Error('Task skill id requires taskId');
+  }
+
+  if (!agentSlug) {
+    throw new Error(`Task skill id requires agent slug for task "${id}"`);
+  }
+
+  return `aios-${agentSlug}-${id}`;
+}
+
+function sanitizeDescription(text) {
+  return String(text || '')
+    .replace(/^>\s*/, '')
+    .replace(/^[-*+]\s+/, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/__([^_]+)__/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1')
+    .replace(/_([^_]+)_/g, '$1')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function toYamlString(value) {
+  return JSON.stringify(String(value || '').replace(/\s+/g, ' ').trim());
+}
+
+function buildTaskSkillContent(taskSpec) {
+  const skillId = getTaskSkillId(taskSpec.id, taskSpec.agent);
+  const title = taskSpec.title || taskSpec.id;
+  const summary = sanitizeDescription(trimText(
+    taskSpec.summary || `Reusable AIOS task workflow skill for ${taskSpec.id}.`,
+    180,
+  ));
+  const description = summary || `Execute AIOS task workflow ${taskSpec.id}.`;
+  const commandHint = String(taskSpec.command || '').trim();
+  const normalizedAgent = normalizeAgentSlug(taskSpec.agent);
+  const ownerAgentFile = getAgentSourceFilename(taskSpec.agent);
+  const interactionNote = taskSpec.elicit
+    ? '- This task requires user interaction points (`elicit=true`). Do not skip them.'
+    : '- Execute non-interactive flow unless blocked by missing context.';
+
+  return `---
+name: ${skillId}
+description: ${toYamlString(description)}
+owner: ${toYamlString(normalizedAgent)}
+intent: "aios-task-workflow"
+source: ${toYamlString(`.aios-core/development/tasks/${taskSpec.filename}`)}
+${commandHint ? `command: ${toYamlString(commandHint)}\n` : ''}---
+
+# AIOS Task Skill: ${title}
+
+## Agent Context
+1. Load \`.aios-core/development/agents/${ownerAgentFile}\` before this task.
+2. Adopt the owner agent persona (\`@${normalizedAgent}\`) for the entire execution.
+3. Only then execute the task workflow below.
+
+## Source of Truth
+- Load \`.aios-core/development/tasks/${taskSpec.filename}\`.
+- Follow the task workflow exactly as written.
+
+## Execution Protocol
+1. Read the task fully before execution.
+2. Respect pre-conditions, post-conditions, and acceptance criteria.
+3. Use only declared tools/scripts and canonical project paths.
+4. Record assumptions explicitly when context is missing.
+
+## Interaction Rules
+${interactionNote}
+
+${commandHint ? `## Canonical Command\n- \`${commandHint}\`\n\n` : ''}## Guardrails
+- Do not invent requirements outside the task definition.
+- Keep outputs aligned with the active story/epic scope.
+- Escalate when constitutional or quality gates would be violated.
+`;
+}
+
+module.exports = {
+  normalizeTaskId,
+  normalizeAgentSlug,
+  getAgentSourceFilename,
+  getTaskSkillId,
+  sanitizeDescription,
+  toYamlString,
+  buildTaskSkillContent,
+};
